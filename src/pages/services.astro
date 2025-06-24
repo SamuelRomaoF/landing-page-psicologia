@@ -1,0 +1,290 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Metadados para SEO
+const title = "Serviços de Psicologia | Dr. [Nome] - Psicólogo em [Cidade]";
+const description = "Conheça nossos serviços de psicoterapia: terapia individual, de casal, familiar e online. Tratamento para ansiedade, depressão, fobias e mais.";
+---
+
+<MainLayout 
+  title={title}
+  description={description}
+  keywords="serviços psicologia, terapia individual, terapia de casal, psicoterapia online, ansiedade, depressão, [Cidade]"
+>
+  <!-- Banner da Página -->
+  <section class="bg-blue-700 text-white py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Serviços de Psicologia</h1>
+      <p class="text-xl max-w-3xl">Conheça os serviços psicológicos oferecidos pelo Dr. [Nome], personalizados para atender às suas necessidades individuais.</p>
+    </div>
+  </section>
+  
+  <!-- Introdução -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-gray-700 mb-6">
+          Na clínica do Dr. [Nome], acreditamos que cada pessoa é única, com experiências e desafios particulares. Por isso, oferecemos uma variedade de serviços psicológicos adaptados às suas necessidades específicas, com uma abordagem integrada que combina diferentes técnicas terapêuticas.
+        </p>
+        <p class="text-gray-700">
+          Todos os atendimentos são realizados em um ambiente acolhedor, seguro e totalmente confidencial, seja presencialmente em nosso consultório em [Cidade] ou através de sessões online.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Serviço: Terapia Individual -->
+  <section id="individual" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <img 
+            src="/images/individual-therapy.jpg" 
+            alt="Terapia Individual com Dr. [Nome]" 
+            class="w-full h-auto rounded-lg shadow-lg"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+        </div>
+        
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Terapia Individual</h2>
+          <p class="text-gray-600 mb-6">
+            A terapia individual é um espaço dedicado ao autoconhecimento e desenvolvimento pessoal. Através de um processo colaborativo, trabalhamos juntos para identificar padrões de pensamento, comportamento e emoções que podem estar causando sofrimento ou limitando seu potencial.
+          </p>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Indicações:</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+            <li>Ansiedade e ataques de pânico</li>
+            <li>Depressão e transtornos de humor</li>
+            <li>Estresse e burnout</li>
+            <li>Traumas e experiências difíceis</li>
+            <li>Problemas de autoestima e autoconfiança</li>
+            <li>Fobias e medos</li>
+            <li>Dificuldades nos relacionamentos</li>
+            <li>Desafios profissionais e tomada de decisão</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Como funciona:</h3>
+          <p class="text-gray-600 mb-4">
+            As sessões duram aproximadamente 50 minutos e são realizadas semanalmente. A frequência pode ser ajustada conforme as necessidades individuais e o progresso terapêutico.
+          </p>
+          <p class="text-gray-600">
+            Utilizamos uma abordagem integrativa, combinando técnicas cognitivo-comportamentais, psicodinâmicas e humanistas para oferecer o melhor tratamento para cada pessoa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Serviço: Terapia de Casal -->
+  <section id="couples" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+        <div class="md:w-1/2">
+          <img 
+            src="/images/couples-therapy.jpg" 
+            alt="Terapia de Casal com Dr. [Nome]" 
+            class="w-full h-auto rounded-lg shadow-lg"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+        </div>
+        
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Terapia de Casal</h2>
+          <p class="text-gray-600 mb-6">
+            A terapia de casal oferece um espaço seguro para que você e seu parceiro(a) possam explorar e resolver conflitos, melhorar a comunicação e fortalecer a intimidade. Trabalhamos juntos para identificar padrões disfuncionais e desenvolver novas formas de interação que promovam o crescimento da relação.
+          </p>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Indicações:</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+            <li>Problemas de comunicação</li>
+            <li>Conflitos recorrentes e não resolvidos</li>
+            <li>Infidelidade e quebra de confiança</li>
+            <li>Intimidade e questões sexuais</li>
+            <li>Ciúme e insegurança</li>
+            <li>Divergências sobre finanças ou educação dos filhos</li>
+            <li>Adaptação a grandes mudanças (casamento, filhos, aposentadoria)</li>
+            <li>Decisões importantes sobre o futuro da relação</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Como funciona:</h3>
+          <p class="text-gray-600 mb-4">
+            As sessões duram aproximadamente 60 a 90 minutos e podem ser semanais ou quinzenais. Ambos os parceiros participam juntos das sessões, embora em alguns casos possam ser recomendadas sessões individuais complementares.
+          </p>
+          <p class="text-gray-600">
+            Nossa abordagem é baseada em técnicas comprovadas de terapia de casal, ajudando a restaurar a conexão emocional e promover um relacionamento mais saudável e satisfatório.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Serviço: Terapia Online -->
+  <section id="online" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <img 
+            src="/images/online-therapy.jpg" 
+            alt="Terapia Online com Dr. [Nome]" 
+            class="w-full h-auto rounded-lg shadow-lg"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+        </div>
+        
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Terapia Online</h2>
+          <p class="text-gray-600 mb-6">
+            A terapia online oferece a mesma qualidade e benefícios da terapia presencial, com a conveniência adicional de poder ser realizada de qualquer lugar. Através de uma plataforma segura de videoconferência, você pode participar das sessões no conforto de sua casa ou local de preferência.
+          </p>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Vantagens:</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+            <li>Flexibilidade de horários e localização</li>
+            <li>Eliminação do tempo e custo de deslocamento</li>
+            <li>Acesso à terapia mesmo estando em outras cidades ou regiões</li>
+            <li>Mesmo nível de confidencialidade e eficácia da terapia presencial</li>
+            <li>Conforto e privacidade do seu próprio espaço</li>
+            <li>Continuidade do tratamento durante viagens ou mudanças</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Como funciona:</h3>
+          <p class="text-gray-600 mb-4">
+            As sessões online seguem o mesmo formato e duração das sessões presenciais. São realizadas através de uma plataforma segura de videoconferência, com link exclusivo enviado antes de cada sessão.
+          </p>
+          <p class="text-gray-600">
+            É recomendável estar em um local tranquilo, privado e com boa conexão de internet para garantir a qualidade da sessão.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Outros Serviços -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Serviços Adicionais</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Serviço Adicional 1 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Terapia Familiar</h3>
+          <p class="text-gray-600 mb-4">
+            A terapia familiar trabalha com toda a família como um sistema, ajudando a melhorar a comunicação, resolver conflitos e fortalecer os laços entre os membros. Indicada para situações que afetam toda a dinâmica familiar, como divórcio, problemas comportamentais dos filhos, luto, mudanças significativas na estrutura familiar, entre outros.
+          </p>
+          <a href="/contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+            Agende uma consulta
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Serviço Adicional 2 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Orientação Profissional</h3>
+          <p class="text-gray-600 mb-4">
+            Ajuda na escolha ou reorientação de carreira, identificando habilidades, interesses e valores pessoais para alinhar com possibilidades profissionais. Ideal para jovens em fase de escolha profissional, pessoas insatisfeitas com a carreira atual ou em transição profissional.
+          </p>
+          <a href="/contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+            Agende uma consulta
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Serviço Adicional 3 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Avaliação Psicológica</h3>
+          <p class="text-gray-600 mb-4">
+            Processo que utiliza técnicas e testes psicológicos para obter informações sobre aspectos do funcionamento psíquico, como personalidade, inteligência, habilidades e comportamento. Pode ser solicitada para diferentes finalidades, como diagnóstico, seleção profissional, entre outros.
+          </p>
+          <a href="/contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+            Agende uma consulta
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Serviço Adicional 4 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Palestras e Workshops</h3>
+          <p class="text-gray-600 mb-4">
+            Atividades educativas e informativas sobre temas relacionados à saúde mental, desenvolvimento pessoal e relações interpessoais. Podem ser realizadas em empresas, escolas, instituições ou grupos específicos, adaptando o conteúdo às necessidades do público.
+          </p>
+          <a href="/contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+            Solicite uma proposta
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Perguntas Frequentes -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Perguntas Frequentes</h2>
+      
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Qual a duração do tratamento?</h3>
+          <p class="text-gray-600">
+            A duração do tratamento varia de acordo com cada caso, dependendo das questões apresentadas, dos objetivos terapêuticos e da resposta individual ao processo. Alguns tratamentos podem ser breves, focados em questões específicas (3 a 6 meses), enquanto outros podem ser mais prolongados, especialmente quando envolvem questões mais profundas ou crônicas.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Qual a frequência das sessões?</h3>
+          <p class="text-gray-600">
+            Geralmente, as sessões são semanais, especialmente no início do tratamento. Com o progresso terapêutico, a frequência pode ser ajustada para quinzenal ou mensal, dependendo das necessidades individuais e dos objetivos alcançados.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">A terapia online é tão eficaz quanto a presencial?</h3>
+          <p class="text-gray-600">
+            Sim, pesquisas científicas têm demonstrado que a terapia online pode ser tão eficaz quanto a presencial para muitas condições. A chave está na qualidade da conexão terapêutica estabelecida e no compromisso com o processo, independentemente do formato. A terapia online oferece a mesma confidencialidade e qualidade profissional, com a vantagem adicional da conveniência.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Trabalha com convênios médicos?</h3>
+          <p class="text-gray-600">
+            Atualmente, trabalhamos com os seguintes convênios: [lista de convênios]. Também oferecemos recibos que podem ser utilizados para reembolso, dependendo do seu plano de saúde. Entre em contato para verificar a cobertura específica do seu plano.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Como sei se preciso de terapia?</h3>
+          <p class="text-gray-600">
+            A terapia pode ser benéfica para qualquer pessoa que esteja enfrentando dificuldades emocionais, comportamentais ou relacionais que impactam sua qualidade de vida. Sinais de que a terapia pode ser útil incluem: sentimentos persistentes de tristeza ou ansiedade, dificuldade para lidar com estresse diário, problemas recorrentes nos relacionamentos, comportamentos autodestrutivos, ou simplesmente o desejo de se conhecer melhor e desenvolver recursos internos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Pronto para começar sua jornada terapêutica?</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8">
+        Agende uma consulta hoje mesmo e dê o primeiro passo em direção ao seu bem-estar emocional e crescimento pessoal.
+      </p>
+      <a href="/contact" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-md font-medium text-lg transition-colors duration-300">
+        Agendar Consulta
+      </a>
+    </div>
+  </section>
+</MainLayout> 

@@ -1,0 +1,124 @@
+---
+import { SEO } from 'astro-seo';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = "psicólogo, terapia, saúde mental, psicoterapia, [Cidade]",
+  image = "/images/office.jpg", 
+  type = "website" 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalURL.toString()}
+      openGraph={{
+        basic: {
+          title: `${title} | Dr. [Nome] - Psicólogo em [Cidade]`,
+          type: type,
+          image: image,
+          url: canonicalURL.toString(),
+        },
+        optional: {
+          description: description,
+          locale: "pt_BR",
+          siteName: "Dr. [Nome] - Psicólogo em [Cidade]",
+        },
+        image: {
+          alt: "Consultório de Psicologia Dr. [Nome]",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@drpsicologonome",
+        title: title,
+        description: description,
+        image: image,
+        imageAlt: "Consultório de Psicologia Dr. [Nome]",
+      }}
+      extend={{
+        meta: [
+          { name: "keywords", content: keywords },
+          { name: "author", content: "Dr. [Nome]" },
+          { name: "robots", content: "index, follow" },
+        ],
+        link: [
+          { rel: "preconnect", href: "https://fonts.googleapis.com" },
+          { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
+          { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" }
+        ],
+      }}
+    />
+    
+    <!-- Dados estruturados JSON-LD para o negócio local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Dr. [Nome] - Psicólogo",
+        "image": "/images/office.jpg",
+        "url": "https://www.drpsicologonome.com.br",
+        "telephone": "+55 11 99999-9999",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Exemplo, 123",
+          "addressLocality": "[Cidade]",
+          "addressRegion": "SP",
+          "postalCode": "00000-000",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -23.550520,
+          "longitude": -46.633308
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "priceRange": "$$",
+        "servesCuisine": "Serviços Psicológicos"
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50">
+    <header class="bg-white shadow-sm">
+      <Header />
+    </header>
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+    
+    <footer class="bg-blue-800 text-white py-8">
+      <Footer />
+    </footer>
+  </body>
+</html> 

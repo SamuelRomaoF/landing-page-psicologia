@@ -1,0 +1,333 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Metadados para SEO
+const title = "Sobre Dr. [Nome] | Psicólogo em [Cidade]";
+const description = "Conheça Dr. [Nome], psicólogo com [X] anos de experiência em [especialidade]. Formação, abordagem terapêutica e valores profissionais.";
+---
+
+<MainLayout 
+  title={title}
+  description={description}
+  keywords="psicólogo [Cidade], sobre Dr. [Nome], experiência profissional, formação acadêmica, abordagem terapêutica"
+>
+  <!-- Banner da Página -->
+  <section class="bg-blue-700 text-white py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Sobre Dr. [Nome]</h1>
+      <p class="text-xl max-w-3xl">Psicólogo Clínico especializado em [especialidade], dedicado a promover saúde mental e bem-estar.</p>
+    </div>
+  </section>
+  
+  <!-- Perfil Profissional -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-2/5">
+          <img 
+            src="/images/psychologist-profile.jpg" 
+            alt="Dr. [Nome] - Psicólogo" 
+            class="w-full h-auto rounded-lg shadow-lg"
+            width="500"
+            height="600"
+            loading="eager"
+          />
+        </div>
+        
+        <div class="md:w-3/5">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Perfil Profissional</h2>
+          
+          <p class="text-gray-600 mb-6">
+            Com mais de [X] anos de experiência na área clínica, o Dr. [Nome] dedica-se a ajudar pessoas a superarem desafios emocionais e comportamentais, promovendo autoconhecimento e desenvolvimento pessoal.
+          </p>
+          
+          <p class="text-gray-600 mb-6">
+            Sua abordagem terapêutica é integrativa, combinando técnicas da Terapia Cognitivo-Comportamental, Psicanálise e Psicologia Humanista, adaptando o tratamento às necessidades específicas de cada paciente.
+          </p>
+          
+          <p class="text-gray-600 mb-8">
+            Acredita firmemente que a relação terapêutica deve ser baseada em confiança, empatia e respeito mútuo, criando um ambiente seguro onde os pacientes possam explorar suas questões e desenvolver recursos internos para enfrentar desafios.
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">CRP: XX/XXXXX</span>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">[X] anos de experiência</span>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Atendimento presencial e online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Formação Acadêmica -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Formação Acadêmica</h2>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Linha do tempo vertical -->
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-200"></div>
+          
+          <!-- Item 1 -->
+          <div class="relative z-10 mb-12">
+            <div class="flex items-center flex-col sm:flex-row">
+              <div class="flex-1 sm:pr-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <span class="text-blue-600 font-semibold">2015 - 2017</span>
+                  <h3 class="text-xl font-semibold text-gray-800 mt-1">Mestrado em Psicologia Clínica</h3>
+                  <p class="text-gray-600">[Universidade]</p>
+                  <p class="text-gray-600 mt-2">Título da dissertação: "[Título da Dissertação]"</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="flex-1 sm:pl-8 hidden sm:block"></div>
+            </div>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="relative z-10 mb-12">
+            <div class="flex items-center flex-col sm:flex-row">
+              <div class="flex-1 sm:pr-8 hidden sm:block"></div>
+              <div class="hidden sm:flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="flex-1 sm:pl-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <span class="text-blue-600 font-semibold">2013 - 2014</span>
+                  <h3 class="text-xl font-semibold text-gray-800 mt-1">Especialização em [Especialidade]</h3>
+                  <p class="text-gray-600">[Instituição]</p>
+                  <p class="text-gray-600 mt-2">Trabalho de conclusão: "[Título do Trabalho]"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Item 3 -->
+          <div class="relative z-10 mb-12">
+            <div class="flex items-center flex-col sm:flex-row">
+              <div class="flex-1 sm:pr-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <span class="text-blue-600 font-semibold">2008 - 2012</span>
+                  <h3 class="text-xl font-semibold text-gray-800 mt-1">Graduação em Psicologia</h3>
+                  <p class="text-gray-600">[Universidade]</p>
+                  <p class="text-gray-600 mt-2">Ênfase em Psicologia Clínica</p>
+                </div>
+              </div>
+              <div class="hidden sm:flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="sm:hidden flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full border-4 border-white text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+              </div>
+              <div class="flex-1 sm:pl-8 hidden sm:block"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Abordagem Terapêutica -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Abordagem Terapêutica</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Abordagem 1 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <div class="text-blue-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">Terapia Cognitivo-Comportamental</h3>
+          <p class="text-gray-600">
+            Abordagem baseada na compreensão de como pensamentos, emoções e comportamentos estão interligados. Trabalha na identificação e modificação de padrões de pensamento disfuncionais que contribuem para problemas emocionais e comportamentais.
+          </p>
+        </div>
+        
+        <!-- Abordagem 2 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <div class="text-blue-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">Psicodinâmica</h3>
+          <p class="text-gray-600">
+            Abordagem que explora como experiências passadas e processos inconscientes influenciam o comportamento atual. Ajuda a compreender padrões repetitivos e conflitos internos que podem estar na raiz de problemas psicológicos.
+          </p>
+        </div>
+        
+        <!-- Abordagem 3 -->
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <div class="text-blue-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">Psicologia Humanista</h3>
+          <p class="text-gray-600">
+            Centrada na pessoa e em seu potencial de crescimento. Valoriza a experiência subjetiva do indivíduo e sua capacidade inata de auto-realização, enfatizando o desenvolvimento da autenticidade e da aceitação.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-gray-50 p-8 rounded-lg">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Abordagem Integrativa</h3>
+        <p class="text-gray-600">
+          Dr. [Nome] utiliza uma abordagem integrativa, combinando elementos de diferentes teorias e técnicas terapêuticas de acordo com as necessidades específicas de cada paciente. Acredita que não existe uma abordagem única que funcione para todos, por isso adapta suas intervenções considerando a singularidade de cada pessoa e sua situação particular.
+        </p>
+        <p class="text-gray-600 mt-4">
+          O objetivo é proporcionar um tratamento personalizado e eficaz, utilizando as ferramentas mais adequadas para ajudar cada paciente a superar seus desafios e alcançar seus objetivos terapêuticos.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Associações e Credenciamentos -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Associações e Credenciamentos</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Associação 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+          <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <span class="text-blue-600 font-bold text-2xl">CRP</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Conselho Regional de Psicologia</h3>
+          <p class="text-gray-600 text-center">CRP XX/XXXXX</p>
+        </div>
+        
+        <!-- Associação 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+          <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <span class="text-blue-600 font-bold text-2xl">CFP</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Conselho Federal de Psicologia</h3>
+          <p class="text-gray-600 text-center">Membro Ativo</p>
+        </div>
+        
+        <!-- Associação 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+          <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <span class="text-blue-600 font-bold text-2xl">ABCT</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Associação Brasileira de Terapia Cognitiva</h3>
+          <p class="text-gray-600 text-center">Membro desde 2015</p>
+        </div>
+        
+        <!-- Associação 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+          <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <span class="text-blue-600 font-bold text-2xl">ABPS</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Associação Brasileira de Psicologia da Saúde</h3>
+          <p class="text-gray-600 text-center">Membro Associado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Formação Complementar -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Formação Complementar</h2>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-6">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Curso de Especialização em Terapia Cognitivo-Comportamental</h3>
+            <p class="text-gray-600">[Instituição] - [Ano]</p>
+            <p class="text-gray-600 mt-2">Carga horária: 120 horas</p>
+          </div>
+          
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Workshop de Mindfulness e Psicoterapia</h3>
+            <p class="text-gray-600">[Instituição] - [Ano]</p>
+            <p class="text-gray-600 mt-2">Carga horária: 40 horas</p>
+          </div>
+          
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Treinamento em Terapia de Casal</h3>
+            <p class="text-gray-600">[Instituição] - [Ano]</p>
+            <p class="text-gray-600 mt-2">Carga horária: 80 horas</p>
+          </div>
+          
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Curso de Psicoterapia Online</h3>
+            <p class="text-gray-600">[Instituição] - [Ano]</p>
+            <p class="text-gray-600 mt-2">Carga horária: 60 horas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Pronto para começar sua jornada terapêutica?</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8">
+        Entre em contato para agendar uma consulta ou esclarecer suas dúvidas. Estou aqui para ajudar.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-md font-medium transition-colors duration-300">
+          Agendar Consulta
+        </a>
+        <a href="/services" class="border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-md font-medium transition-colors duration-300">
+          Conhecer Serviços
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout> 

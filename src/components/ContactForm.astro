@@ -1,0 +1,176 @@
+---
+// Componente de formulário de contato otimizado para conversão
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">Entre em Contato</h3>
+  
+  <form id="contact-form" class="space-y-6" action="https://formspree.io/f/seu-id-formspree" method="POST">
+    <!-- Campo de nome -->
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome completo *</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Seu nome"
+      />
+    </div>
+    
+    <!-- Campo de email -->
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="seu.email@exemplo.com"
+      />
+    </div>
+    
+    <!-- Campo de telefone -->
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="(00) 00000-0000"
+      />
+    </div>
+    
+    <!-- Campo de assunto -->
+    <div>
+      <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto *</label>
+      <select 
+        id="subject" 
+        name="subject" 
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="" disabled selected>Selecione um assunto</option>
+        <option value="Consulta Individual">Consulta Individual</option>
+        <option value="Terapia de Casal">Terapia de Casal</option>
+        <option value="Informações">Informações sobre Serviços</option>
+        <option value="Valores">Valores e Convênios</option>
+        <option value="Outro">Outro Assunto</option>
+      </select>
+    </div>
+    
+    <!-- Campo de mensagem -->
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="4" 
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Como posso ajudar você?"
+      ></textarea>
+    </div>
+    
+    <!-- Política de privacidade -->
+    <div class="flex items-start">
+      <div class="flex items-center h-5">
+        <input
+          id="privacy-policy"
+          name="privacy-policy"
+          type="checkbox"
+          required
+          class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+        />
+      </div>
+      <div class="ml-3 text-sm">
+        <label for="privacy-policy" class="text-gray-600">
+          Concordo com a <a href="/privacy-policy" class="text-blue-600 hover:underline">Política de Privacidade</a> *
+        </label>
+      </div>
+    </div>
+    
+    <!-- Botão de envio -->
+    <div>
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition-colors duration-300 font-medium"
+      >
+        Enviar Mensagem
+      </button>
+    </div>
+    
+    <!-- Mensagem de status (inicialmente oculta) -->
+    <div id="form-status" class="hidden mt-4 p-4 rounded-md">
+      <p id="form-status-text"></p>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const formStatusText = document.getElementById('form-status-text');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Preparar dados do formulário
+        const formData = new FormData(form);
+        
+        // Enviar para o Formspree
+        fetch(form.getAttribute('action'), {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            // Sucesso
+            form.reset();
+            formStatus.classList.remove('hidden', 'bg-red-100');
+            formStatus.classList.add('bg-green-100');
+            formStatusText.textContent = 'Obrigado! Retornaremos em breve.';
+          } else {
+            // Erro
+            formStatus.classList.remove('hidden', 'bg-green-100');
+            formStatus.classList.add('bg-red-100');
+            formStatusText.textContent = 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.';
+          }
+        })
+        .catch(error => {
+          // Erro na requisição
+          formStatus.classList.remove('hidden', 'bg-green-100');
+          formStatus.classList.add('bg-red-100');
+          formStatusText.textContent = 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.';
+        });
+      });
+    }
+    
+    // Máscara para o campo de telefone
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.slice(0, 11);
+        
+        if (value.length > 2) {
+          value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
+        }
+        if (value.length > 10) {
+          value = value.slice(0, 10) + '-' + value.slice(10);
+        }
+        
+        e.target.value = value;
+      });
+    }
+  });
+</script> 

@@ -1,0 +1,26 @@
+/* Importando Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais adicionais */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos de acessibilidade */
+:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+/* Utilidades personalizadas */
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+} 

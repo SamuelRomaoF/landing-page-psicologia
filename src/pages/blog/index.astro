@@ -1,0 +1,214 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// Metadados para SEO
+const title = "Blog de Psicologia | Dr. [Nome] - Psicólogo em [Cidade]";
+const description = "Artigos sobre saúde mental, psicologia, terapia e bem-estar emocional escritos pelo Dr. [Nome], psicólogo em [Cidade].";
+
+// Dados simulados de artigos do blog
+const blogPosts = [
+  {
+    id: 1,
+    title: "Como lidar com a ansiedade no dia a dia",
+    slug: "como-lidar-com-ansiedade",
+    excerpt: "Descubra estratégias práticas para gerenciar os sintomas de ansiedade e recuperar a sensação de controle e bem-estar no seu cotidiano.",
+    date: "2023-03-15",
+    image: "/images/blog/ansiedade.jpg",
+    categories: ["Ansiedade", "Autoajuda"],
+    readTime: 5
+  },
+  {
+    id: 2,
+    title: "Os benefícios da terapia para relacionamentos",
+    slug: "beneficios-terapia-relacionamentos",
+    excerpt: "Entenda como a terapia de casal pode ajudar a melhorar a comunicação, resolver conflitos e fortalecer o vínculo entre parceiros.",
+    date: "2023-02-28",
+    image: "/images/blog/relacionamentos.jpg",
+    categories: ["Relacionamentos", "Terapia de Casal"],
+    readTime: 7
+  },
+  {
+    id: 3,
+    title: "Depressão: sinais de alerta e quando buscar ajuda",
+    slug: "depressao-sinais-quando-buscar-ajuda",
+    excerpt: "Aprenda a reconhecer os sintomas da depressão e entenda a importância de buscar ajuda profissional no momento adequado.",
+    date: "2023-02-10",
+    image: "/images/blog/depressao.jpg",
+    categories: ["Depressão", "Saúde Mental"],
+    readTime: 6
+  },
+  {
+    id: 4,
+    title: "Mindfulness: técnicas para viver o momento presente",
+    slug: "mindfulness-tecnicas-momento-presente",
+    excerpt: "Conheça práticas de mindfulness que podem ajudar a reduzir o estresse, melhorar o foco e aumentar a consciência do momento presente.",
+    date: "2023-01-22",
+    image: "/images/blog/mindfulness.jpg",
+    categories: ["Mindfulness", "Bem-estar"],
+    readTime: 4
+  },
+  {
+    id: 5,
+    title: "Estresse no trabalho: estratégias de enfrentamento",
+    slug: "estresse-trabalho-estrategias",
+    excerpt: "Dicas práticas para lidar com o estresse profissional e manter o equilíbrio entre vida pessoal e trabalho.",
+    date: "2023-01-05",
+    image: "/images/blog/estresse-trabalho.jpg",
+    categories: ["Estresse", "Trabalho"],
+    readTime: 5
+  },
+  {
+    id: 6,
+    title: "O papel dos pais na saúde mental dos filhos",
+    slug: "papel-pais-saude-mental-filhos",
+    excerpt: "Como os pais podem contribuir para o desenvolvimento emocional saudável das crianças e adolescentes.",
+    date: "2022-12-18",
+    image: "/images/blog/pais-filhos.jpg",
+    categories: ["Família", "Crianças e Adolescentes"],
+    readTime: 8
+  }
+];
+
+// Função para formatar a data
+function formatDate(dateString) {
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  return new Date(dateString).toLocaleDateString('pt-BR', options);
+}
+---
+
+<MainLayout 
+  title={title}
+  description={description}
+  keywords="blog psicologia, artigos saúde mental, dicas bem-estar emocional, psicólogo [Cidade], ansiedade, depressão"
+>
+  <!-- Banner da Página -->
+  <section class="bg-blue-700 text-white py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Blog de Psicologia</h1>
+      <p class="text-xl max-w-3xl">Artigos, dicas e reflexões sobre saúde mental, psicologia e bem-estar emocional.</p>
+    </div>
+  </section>
+  
+  <!-- Categorias -->
+  <section class="bg-white py-6 border-b">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-2">
+        <a href="/blog" class="px-4 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300">
+          Todos
+        </a>
+        <a href="/blog/category/ansiedade" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors duration-300">
+          Ansiedade
+        </a>
+        <a href="/blog/category/depressao" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors duration-300">
+          Depressão
+        </a>
+        <a href="/blog/category/relacionamentos" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors duration-300">
+          Relacionamentos
+        </a>
+        <a href="/blog/category/bem-estar" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors duration-300">
+          Bem-estar
+        </a>
+        <a href="/blog/category/familia" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors duration-300">
+          Família
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Lista de Posts -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <article class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+            <a href={`/blog/${post.slug}`} class="block">
+              <div class="h-48 bg-gray-200 relative">
+                <div class="absolute inset-0 bg-blue-900 flex items-center justify-center">
+                  <p class="text-white text-center px-4">
+                    [Imagem do Artigo]<br>
+                    {post.title}
+                  </p>
+                </div>
+              </div>
+            </a>
+            <div class="p-6">
+              <div class="flex flex-wrap gap-2 mb-3">
+                {post.categories.map((category) => (
+                  <span class="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                    {category}
+                  </span>
+                ))}
+              </div>
+              <a href={`/blog/${post.slug}`} class="block">
+                <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors duration-300">{post.title}</h2>
+              </a>
+              <p class="text-gray-600 mb-4">{post.excerpt}</p>
+              <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>{formatDate(post.date)}</span>
+                <span>{post.readTime} min de leitura</span>
+              </div>
+              <a href={`/blog/${post.slug}`} class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                Ler mais
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      
+      <!-- Paginação -->
+      <div class="mt-12 flex justify-center">
+        <nav class="inline-flex rounded-md shadow">
+          <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-gray-500 rounded-l-md hover:bg-gray-50">
+            Anterior
+          </a>
+          <a href="#" class="py-2 px-4 bg-blue-600 text-white font-medium border border-blue-600">
+            1
+          </a>
+          <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50">
+            2
+          </a>
+          <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50">
+            3
+          </a>
+          <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-gray-500 rounded-r-md hover:bg-gray-50">
+            Próximo
+          </a>
+        </nav>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Newsletter -->
+  <section class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Inscreva-se na Newsletter</h2>
+        <p class="text-blue-100 mb-8">
+          Receba novos artigos, dicas de saúde mental e informações exclusivas diretamente no seu e-mail.
+        </p>
+        
+        <form class="flex flex-col sm:flex-row gap-4">
+          <input 
+            type="email" 
+            placeholder="Seu melhor e-mail" 
+            class="flex-1 px-4 py-3 rounded-md text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+          <button 
+            type="submit" 
+            class="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors duration-300"
+          >
+            Inscrever-se
+          </button>
+        </form>
+        
+        <p class="text-sm text-blue-100 mt-4">
+          Respeitamos sua privacidade. Você pode cancelar a inscrição a qualquer momento.
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout> 

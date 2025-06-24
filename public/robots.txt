@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Diretórios que não devem ser indexados
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /api/
+
+# Arquivos específicos para não indexar
+Disallow: /404.html
+Disallow: /500.html
+Disallow: /thankyou.html
+
+# Arquivos de mídia e recursos estáticos
+Allow: /images/
+Allow: /assets/
+Allow: /fonts/
+Allow: /favicon.ico
+
+# Sitemap
+Sitemap: https://www.drpsicologonome.com.br/sitemap.xml 
