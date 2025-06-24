@@ -1,0 +1,214 @@
+---
+// Componente wrapper para animar elementos em todas as páginas
+interface Props {
+  animation?: 'fade' | 'fade-up' | 'fade-left' | 'fade-right' | 'zoom' | 'slide-up';
+  duration?: number;
+  delay?: number;
+  threshold?: number;
+  class?: string;
+}
+
+const { 
+  animation = 'fade', 
+  duration = 800,
+  delay = 0,
+  threshold = 0.1,
+  class: className = ''
+} = Astro.props;
+---
+
+<div 
+  class:list={["animation-wrapper", className]}
+  data-animation={animation}
+  data-duration={duration}
+  data-delay={delay}
+  data-threshold={threshold}
+>
+  <slot />
+</div>
+
+<style>
+  .animation-wrapper {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animation-wrapper.animated[data-animation="fade"] {
+    opacity: 1;
+  }
+  
+  .animation-wrapper.animated[data-animation="fade-up"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animation-wrapper.animated[data-animation="fade-left"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .animation-wrapper.animated[data-animation="fade-right"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .animation-wrapper.animated[data-animation="zoom"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .animation-wrapper.animated[data-animation="slide-up"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animation-wrapper[data-animation="fade-up"] {
+    transform: translateY(40px);
+  }
+  
+  .animation-wrapper[data-animation="fade-left"] {
+    transform: translateX(-40px);
+  }
+  
+  .animation-wrapper[data-animation="fade-right"] {
+    transform: translateX(40px);
+  }
+  
+  .animation-wrapper[data-animation="zoom"] {
+    transform: scale(0.9);
+  }
+  
+  .animation-wrapper[data-animation="slide-up"] {
+    transform: translateY(80px);
+  }
+</style>
+
+<script>
+  // Inicializar as animações quando o DOM estiver carregado
+  document.addEventListener('DOMContentLoaded', () => {
+    const animationWrappers = document.querySelectorAll('.animation-wrapper');
+    
+    // Observer de interseção para detectar elementos no viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const wrapper = entry.target;
+          const delay = parseInt(wrapper.getAttribute('data-delay') || '0');
+          const duration = parseInt(wrapper.getAttribute('data-duration') || '800');
+          
+          // Aplicar duração da animação
+          wrapper.style.transitionDuration = `${duration}ms`;
+          
+          // Aplicar animação com delay
+          setTimeout(() => {
+            wrapper.classList.add('animated');
+          }, delay);
+          
+          // Parar de observar após animar
+          observer.unobserve(wrapper);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+    
+    // Observar todos os wrappers de animação
+    animationWrappers.forEach(wrapper => {
+      const threshold = parseFloat(wrapper.getAttribute('data-threshold') || '0.1');
+      
+      // Configurar observer com threshold customizado
+      const elementObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(wrapper.getAttribute('data-delay') || '0');
+            const duration = parseInt(wrapper.getAttribute('data-duration') || '800');
+            
+            // Aplicar duração da animação
+            wrapper.style.transitionDuration = `${duration}ms`;
+            
+            // Aplicar animação com delay
+            setTimeout(() => {
+              wrapper.classList.add('animated');
+            }, delay);
+            
+            // Parar de observar após animar
+            elementObserver.unobserve(wrapper);
+          }
+        });
+      }, {
+        threshold: threshold
+      });
+      
+      elementObserver.observe(wrapper);
+    });
+    
+    // Animação dos contadores
+    const animateCounters = () => {
+      const counters = document.querySelectorAll('.counter');
+      
+      counters.forEach(counter => {
+        // Verificar se o contador já foi animado
+        if (counter.classList.contains('animated')) return;
+        
+        const target = parseInt(counter.getAttribute('data-target') || '0');
+        let count = 0;
+        const duration = 2000; // duração da animação em ms
+        const frameDuration = 1000 / 60; // 60 fps
+        const totalFrames = Math.round(duration / frameDuration);
+        const increment = target / totalFrames;
+        
+        // Marcar contador como animado
+        counter.classList.add('animated');
+        
+        // Função para animar contador
+        const updateCounter = () => {
+          if (count < target) {
+            count += increment;
+            
+            // Diferentes formatações para diferentes contadores
+            if (counter.id === 'counter4') {
+              counter.textContent = `${Math.ceil(count)}%`;
+            } else {
+              counter.textContent = `${Math.ceil(count)}+`;
+            }
+            
+            requestAnimationFrame(updateCounter);
+          } else {
+            // Garantir que o valor final seja exatamente o alvo
+            if (counter.id === 'counter4') {
+              counter.textContent = `${target}%`;
+            } else {
+              counter.textContent = `${target}+`;
+            }
+          }
+        };
+        
+        updateCounter();
+      });
+    };
+    
+    // Observer para iniciar a animação dos contadores quando estiverem visíveis
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Iniciar a animação apenas quando o contador estiver visível
+          animateCounters();
+          
+          // Parar de observar após iniciar a animação
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+    
+    // Observar a seção de contadores
+    const counterSection = document.querySelector('.counter');
+    if (counterSection) {
+      counterObserver.observe(counterSection);
+    }
+  });
+</script> 

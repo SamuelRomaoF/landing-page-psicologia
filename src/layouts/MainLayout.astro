@@ -16,7 +16,7 @@ const {
   title, 
   description, 
   keywords = "psicólogo, terapia, saúde mental, psicoterapia, [Cidade]",
-  image = "/images/office.jpg", 
+  image = "/favicon.svg", 
   type = "website" 
 } = Astro.props;
 
@@ -31,45 +31,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
+    <!-- Importação de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <SEO
       title={title}
       description={description}
       canonical={canonicalURL.toString()}
       openGraph={{
         basic: {
-          title: `${title} | Dr. [Nome] - Psicólogo em [Cidade]`,
+          title: title,
           type: type,
           image: image,
           url: canonicalURL.toString(),
         },
         optional: {
           description: description,
-          locale: "pt_BR",
-          siteName: "Dr. [Nome] - Psicólogo em [Cidade]",
-        },
-        image: {
-          alt: "Consultório de Psicologia Dr. [Nome]",
-        },
+        }
       }}
       twitter={{
         card: "summary_large_image",
-        site: "@drpsicologonome",
         title: title,
         description: description,
         image: image,
-        imageAlt: "Consultório de Psicologia Dr. [Nome]",
       }}
       extend={{
         meta: [
           { name: "keywords", content: keywords },
-          { name: "author", content: "Dr. [Nome]" },
           { name: "robots", content: "index, follow" },
+          { name: "author", content: "Dr. [Nome]" }
         ],
         link: [
-          { rel: "preconnect", href: "https://fonts.googleapis.com" },
-          { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
-          { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" }
-        ],
+          { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }
+        ]
       }}
     />
     
@@ -107,18 +103,155 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "servesCuisine": "Serviços Psicológicos"
       }
     </script>
+
+    <!-- Dados estruturados JSON-LD para consulta de psicologia -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Consultório de Psicologia Dr. [Nome]",
+        "description": "Serviços psicológicos em [Cidade] com o Dr. [Nome]. Terapia individual, de casal e familiar.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua [Nome da Rua], 123",
+          "addressLocality": "[Cidade]",
+          "addressRegion": "[Estado]",
+          "postalCode": "[CEP]",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55 11 12345-6789",
+        "email": "contato@drpsicologia.com.br",
+        "url": "https://www.drpsicologia.com.br",
+        "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
+        "priceRange": "$$",
+        "image": "/favicon.svg",
+        "sameAs": [
+          "https://www.facebook.com/drpsicologia",
+          "https://www.instagram.com/drpsicologia"
+        ],
+        "services": [
+          "Terapia Individual",
+          "Terapia de Casal",
+          "Terapia Familiar",
+          "Avaliação Psicológica"
+        ]
+      }
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-gray-50">
-    <header class="bg-white shadow-sm">
-      <Header />
-    </header>
-    
+    <Header />
     <main class="flex-grow">
       <slot />
     </main>
-    
     <footer class="bg-blue-800 text-white py-8">
-      <Footer />
+      <div class="container mx-auto px-4">
+        <Footer />
+      </div>
     </footer>
+    
+    <!-- Script para animações -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Função para verificar se um elemento está visível na tela
+        function isElementInViewport(el) {
+          const rect = el.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+        
+        // Elementos a serem animados
+        const fadeElements = document.querySelectorAll('[data-aos]');
+        
+        // Aplicar animações aos elementos visíveis inicialmente
+        fadeElements.forEach(element => {
+          const animationType = element.getAttribute('data-aos');
+          const delay = element.getAttribute('data-aos-delay') || 0;
+          
+          if (isElementInViewport(element)) {
+            setTimeout(() => {
+              if (animationType === 'fade-up') element.classList.add('animate-fade-up');
+              else if (animationType === 'fade-right') element.classList.add('animate-fade-right');
+              else if (animationType === 'fade-left') element.classList.add('animate-fade-left');
+              else if (animationType === 'fade-down') element.classList.add('animate-fade-in');
+              else element.classList.add('animate-fade-in');
+            }, delay);
+          }
+        });
+        
+        // Detectar elementos ao rolar a página
+        window.addEventListener('scroll', function() {
+          fadeElements.forEach(element => {
+            if (isElementInViewport(element) && !element.classList.contains('animate-fade-up') && 
+                !element.classList.contains('animate-fade-right') && 
+                !element.classList.contains('animate-fade-left') && 
+                !element.classList.contains('animate-fade-in')) {
+              
+              const animationType = element.getAttribute('data-aos');
+              
+              if (animationType === 'fade-up') element.classList.add('animate-fade-up');
+              else if (animationType === 'fade-right') element.classList.add('animate-fade-right');
+              else if (animationType === 'fade-left') element.classList.add('animate-fade-left');
+              else if (animationType === 'fade-down') element.classList.add('animate-fade-in');
+              else element.classList.add('animate-fade-in');
+            }
+          });
+        });
+        
+        // Animação dos contadores
+        const counters = document.querySelectorAll('#counter1, #counter2, #counter3, #counter4');
+        
+        if (counters.length > 0) {
+          // Função para animar os contadores quando visíveis
+          function animateCounters() {
+            counters.forEach(counter => {
+              if (isElementInViewport(counter) && !counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                
+                const id = counter.id;
+                let finalValue = 0;
+                
+                if (id === 'counter1') finalValue = 500;
+                else if (id === 'counter2') finalValue = 10;
+                else if (id === 'counter3') finalValue = 15;
+                else if (id === 'counter4') finalValue = 98;
+                
+                let startValue = 0;
+                const duration = 2000;
+                const increment = Math.ceil(finalValue / (duration / 20));
+                
+                const timer = setInterval(() => {
+                  startValue += increment;
+                  
+                  if (startValue >= finalValue) {
+                    if (id === 'counter4') {
+                      counter.textContent = finalValue + '%';
+                    } else {
+                      counter.textContent = finalValue + '+';
+                    }
+                    clearInterval(timer);
+                  } else {
+                    if (id === 'counter4') {
+                      counter.textContent = startValue + '%';
+                    } else {
+                      counter.textContent = startValue + '+';
+                    }
+                  }
+                }, 20);
+              }
+            });
+          }
+          
+          // Verificar contadores ao carregar
+          animateCounters();
+          
+          // Verificar contadores ao rolar
+          window.addEventListener('scroll', animateCounters);
+        }
+      });
+    </script>
   </body>
 </html> 
